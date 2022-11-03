@@ -1,0 +1,6 @@
+name: BalloonsByJens
+version: '${project.version}'
+main: dev.jensderuiter.balloonsbyjens.BalloonsPlugin
+api-version: 1.18
+authors: [ jensjeflensje ]
+description: Cool balloons in Minecraft
