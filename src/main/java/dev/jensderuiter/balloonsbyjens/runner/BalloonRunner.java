@@ -15,7 +15,7 @@ import java.util.Random;
 
 public class BalloonRunner extends BukkitRunnable {
 
-    private Player player;
+    public Player player;
     public ItemStack head;
     private ArmorStand armorStand;
     private Chicken chicken;

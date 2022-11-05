@@ -1,9 +1,6 @@
 package dev.jensderuiter.balloonsbyjens;
 
-import dev.jensderuiter.balloonsbyjens.event.OnBalloonHold;
-import dev.jensderuiter.balloonsbyjens.event.OnDrop;
-import dev.jensderuiter.balloonsbyjens.event.OnInventoryChange;
-import dev.jensderuiter.balloonsbyjens.event.OnPickup;
+import dev.jensderuiter.balloonsbyjens.event.*;
 import dev.jensderuiter.balloonsbyjens.runner.BalloonRunner;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -20,6 +17,7 @@ public final class BalloonsPlugin extends JavaPlugin {
         instance = this;
         getServer().getPluginManager().registerEvents(new OnBalloonHold(), this);
         getServer().getPluginManager().registerEvents(new OnDrop(), this);
+        getServer().getPluginManager().registerEvents(new OnLeave(), this);
         getServer().getPluginManager().registerEvents(new OnPickup(), this);
         getServer().getPluginManager().registerEvents(new OnInventoryChange(), this);
     }

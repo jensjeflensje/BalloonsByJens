@@ -17,13 +17,8 @@ public class Utils {
             public void run() {
                 ItemStack item = finalItem;
                 BalloonRunner runner = BalloonsPlugin.playerBalloons.get(player);
-                if (runner != null) {
-                    if (runner.head.isSimilar(item)) return;
-                    runner.moveLocation.getWorld().spawnParticle(Particle.CLOUD, runner.moveLocation, 5, 0, 0 ,0, 0.1);
-                    runner.destroy();
-                    runner.cancel();
-                    BalloonsPlugin.playerBalloons.remove(player);
-                }
+                if (runner != null && runner.head.isSimilar(item)) return;
+                removeBalloon(runner);
                 if (item == null) {
                     item = player.getInventory().getItemInMainHand();
                 }
@@ -34,6 +29,15 @@ public class Utils {
                 }
             }
         }.runTaskLater(BalloonsPlugin.getInstance(), 1);
+    }
+
+    public static void removeBalloon(BalloonRunner runner) {
+        if (runner != null) {
+            runner.moveLocation.getWorld().spawnParticle(Particle.CLOUD, runner.moveLocation, 5, 0, 0 ,0, 0.1);
+            runner.destroy();
+            runner.cancel();
+            BalloonsPlugin.playerBalloons.remove(runner.player);
+        }
     }
 
 }
