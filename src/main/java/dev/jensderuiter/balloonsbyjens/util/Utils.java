@@ -26,7 +26,7 @@ public class Utils {
                 }
                 if (item.getType() == Material.PLAYER_HEAD && item.getItemMeta().getLore() != null && item.getItemMeta().getLore().contains("Balloon")) {
                     BalloonRunner balloonRunner = new BalloonRunner(player, item);
-                    player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_FALLING, -1, 0, false));
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_FALLING, Integer.MAX_VALUE, 0, false, false, false));
                     balloonRunner.runTaskTimer(BalloonsPlugin.getInstance(), 0, 1);
                     BalloonsPlugin.playerBalloons.put(player, balloonRunner);
                 }
